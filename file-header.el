@@ -1,10 +1,10 @@
-;;; file-header.el --- Self design file header.                     -*- lexical-binding: t; -*-
+;;; file-header.el --- Highly customizable self design file header.                     -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018  Shen, Jen-Chieh
 ;; Created date 2018-12-24 16:49:42
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
-;; Description: Self design file header.
+;; Description: Highly customizable self design file header.
 ;; Keyword: file header
 ;; Version: 0.0.1
 ;; Package-Requires: ((emacs "24.4") (s "1.12.0"))
@@ -27,7 +27,7 @@
 
 ;;; Commentary:
 ;;
-;; Self design file header.
+;; Highly customizable self design file header.
 ;;
 
 ;;; Code:
@@ -36,7 +36,7 @@
 
 
 (defgroup file-header nil
-  "Self design file header."
+  "Highly customizable self design file header."
   :prefix "file-header-"
   :group 'convenience
   :link '(url-link :tag "Repository" "https://github.com/jcs090218/file-header"))
