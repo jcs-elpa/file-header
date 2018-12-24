@@ -84,6 +84,7 @@ This is the minimal template example. The full example can be found <a href="htt
  *                   Copyright © #TIME_YEAR# by #COPYRIGHT_INFO# $
  */
 
+
 public class #FILE_NAME_NO_EXT# {
 
 }
