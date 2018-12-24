@@ -35,7 +35,7 @@ interactive or not interactive depends on your own usage.
   (file-header-insert-template-by-file-path "~/.emacs.d/template/java/java_template.txt"))
 ```
 
-You can bind it to `java-mode-hook' so everytime you create a Java file, 
+You can bind it to any `mode-hook' so everytime you created a file, 
 the template will be inserted.
 ```
 (add-hook 'java-mode-hook
