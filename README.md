@@ -73,7 +73,8 @@ There are two ways to assign value in the config file.
 
 
 ## Templates Example ##
-This is the minimal template example. The full example can be found <a href="https://github.com/jcs090218/jcs-emacs-init/tree/master/.emacs.jcs/template">here</a>.
+This is the minimal template example for a Java file. The full example 
+can be found <a href="https://github.com/jcs090218/jcs-emacs-init/tree/master/.emacs.jcs/template">here</a>.
 ```
 /**
  * $File: #FILE_NAME# $
