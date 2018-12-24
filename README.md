@@ -44,7 +44,7 @@ by passing the template file path.
 
 ### Screenshot ###
 Here is the result after I created `cool.java` file.
-<img src="./screenshot/file-header-demo-1.png" width="817" height="340"/>
+<img src="./screenshot/file-header-demo-1.png" width="612" height="255"/>
 
 
 ## Config Example ##
