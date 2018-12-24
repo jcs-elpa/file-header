@@ -16,26 +16,28 @@ First you need to set the template config file path.
 
 ### Step 2. ###
 Then create the config file to the directory where you just set. The config file 
-example can be found under Config Example section below.
+example can be found under `Config Example` section below.
 
 ### Step 3. ###
 Create the template file and design it. The template file example can be found under 
-Templates Example section below.
+`Templates Example` section below.
 
 ### Step 4. ###
 Lastly, you can define your own insert template function by calling `file-header-insert-template-by-file-path` 
-by passing the template file path.
+by passing the template file path. <br/>
+
+Example function that insert the Java template. You can either set 
+interactive or not interactive depends on your own usage.
 ```
-;; Example function that insert the Java template. You can either set 
-;; interactive or not interactive depends on your own usage.
 (defun insert-java-template ()
   "Insert the template for Java file."
   (interactive)
   (file-header-insert-template-by-file-path "~/.emacs.d/template/java/java_template.txt"))
+```
 
-
-;; You can bind it to `java-mode-hook' so everytime you create a Java file, 
-;; the template will be inserted.
+You can bind it to `java-mode-hook' so everytime you create a Java file, 
+the template will be inserted.
+```
 (add-hook 'java-mode-hook
               (lambda ()
                 ;; Insert the template once a .java file created.
