@@ -6,17 +6,6 @@
 Highly customizable self design file header. <br/><br/>
 
 
-## Features ##
-* No need to restart Emacs to take effect from the template.
-* You would not need to edit your Emacs' configuration, you would just need 
-to edit the template file.
-* Highly customizable, you can assign property value to a lisp function. For 
-instance, get-time, you would just need to design a function that returns a 
-string of the time, and this package will do the rest of the work for you. 
-You could even define your own property name, in addition. For any file, for 
-any programming language, for anything.
-
-
 ## Usage ##
 
 ### Step 1. ###
