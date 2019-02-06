@@ -1,7 +1,8 @@
-# file-header #
-
 [![Build Status](https://travis-ci.com/jcs090218/file-header.svg?branch=master)](https://travis-ci.com/jcs090218/file-header)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+
+# file-header #
 
 Highly customizable self design file header. <br/><br/>
 
