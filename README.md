@@ -4,14 +4,14 @@
 
 # file-header #
 
-Highly customizable self design file header. <br/><br/>
+Highly customizable self design file header.
 
 
 ## Usage ##
 
 ### Step 1. ###
 First you need to set the template config file path.
-```
+```el
 (setq file-header-template-config-filepath "~/.emacs.jcs/template/template_config.properties")
 ```
 
@@ -29,7 +29,7 @@ by passing the template file path. <br/>
 
 Example function that insert the Java template. You can either set 
 interactive or not interactive depends on your own usage.
-```
+```el
 (defun insert-java-template ()
   "Insert the template for Java file."
   (interactive)
@@ -38,7 +38,7 @@ interactive or not interactive depends on your own usage.
 
 You can bind it to any `mode-hook' so everytime you created a file, 
 the template will be inserted.
-```
+```el
 (add-hook 'java-mode-hook
               (lambda ()
                 ;; Insert the template once a .java file created.
@@ -54,7 +54,7 @@ Here is the result after I created `cool.java` file.
 Here is the minimal config example. Functions below like `jcs-get-file-name`, `jcs-get-timestamp`, etc, 
 are for demonstration purpose and not included inside this package. You would need 
 to define these functions your own somewhere in your emacs configuration.
-```
+```ini
 # Author related.
 CREATOR_NAME=Jen-Chieh Shen
 COPYRIGHT_INFO=Shen, Jen-Chieh
@@ -76,7 +76,7 @@ There are two ways to assign value in the config file.
 ## Templates Example ##
 This is the minimal template example for a Java file. The full example 
 can be found <a href="https://github.com/jcs090218/jcs-emacs-init/tree/master/.emacs.jcs/template">here</a>.
-```
+```java
 /**
  * $File: #FILE_NAME# $
  * $Date: #TIME_STAMP# $
