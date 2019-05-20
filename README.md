@@ -2,28 +2,26 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
-# file-header #
+# file-header
+> Highly customizable self design file header.
 
-Highly customizable self design file header.
 
-
-## Usage ##
-
-### Step 1. ###
+## Usage
+### Step 1.
 First you need to set the template config file path.
 ```el
 (setq file-header-template-config-filepath "~/.emacs.jcs/template/template_config.properties")
 ```
 
-### Step 2. ###
+### Step 2.
 Then create the config file to the directory where you just set. The config file 
 example can be found under `Config Example` section below.
 
-### Step 3. ###
+### Step 3.
 Create the template file and design it. The template file example can be found under 
 `Templates Example` section below.
 
-### Step 4. ###
+### Step 4.
 Lastly, you can define your own insert template function by calling `file-header-insert-template-by-file-path` 
 by passing the template file path. <br/>
 
@@ -45,12 +43,12 @@ the template will be inserted.
                 (insert-java-template))
 ```
 
-### Screenshot ###
+### Screenshot
 Here is the result after I created `cool.java` file.
 <img src="./screenshot/file-header-demo-1.png" width="612" height="255"/>
 
 
-## Config Example ##
+## Config Example
 Here is the minimal config example. Functions below like `jcs-get-file-name`, `jcs-get-timestamp`, etc, 
 are for demonstration purpose and not included inside this package. You would need 
 to define these functions your own somewhere in your emacs configuration.
@@ -73,7 +71,7 @@ There are two ways to assign value in the config file.
 * Assign property to a lisp function that returns a string. e.g. `TIME_STAMP=(jcs-get-timestamp)`.
 
 
-## Templates Example ##
+## Templates Example
 This is the minimal template example for a Java file. The full example 
 can be found <a href="https://github.com/jcs090218/jcs-emacs-init/tree/master/.emacs.jcs/template">here</a>.
 ```java
@@ -93,7 +91,7 @@ public class #FILE_NAME_NO_EXT# {
 ```
 
 
-## Contribution ##
+## Contribution
 If you would like to contribute to this project, you may either 
 clone and make pull requests to this repository. Or you can 
 clone the project and establish your own branch of this tool. 
