@@ -48,17 +48,18 @@
   :group 'file-header)
 
 
-(defun file-header-get-string-from-file (path)
+(defun file-header--get-string-from-file (path)
   "Return PATH's file content."
   (with-temp-buffer
     (insert-file-contents path)
     (buffer-string)))
 
-(defun file-header-parse-ini (path)
+(defun file-header--parse-ini (path)
   "Parse a .ini file from PATH."
-  (let ((tmp-ini (file-header-get-string-from-file path))
+  (let ((tmp-ini (file-header--get-string-from-file path))
         (tmp-ini-list '()) (tmp-pair-list nil)
-        (tmp-keyword "") (tmp-value "") (count 0))
+        (tmp-keyword "") (tmp-value "")
+        (count 0))
     (setq tmp-ini (split-string tmp-ini "\n"))
 
     (dolist (tmp-line tmp-ini)
@@ -85,11 +86,12 @@
     ;; return list.
     tmp-ini-list))
 
+;;;###autoload
 (defun file-header-swap-keyword-template (template-str)
   "Swap all keyword in TEMPLATE-STR to proper information."
   (let ((tmp-ini-list '()) (tmp-keyword "") (tmp-value "") (tmp-index 0))
     ;; parse and get the list of keyword and value.
-    (setq tmp-ini-list (file-header-parse-ini file-header-template-config-filepath))
+    (setq tmp-ini-list (file-header--parse-ini file-header-template-config-filepath))
 
     (while (< tmp-index (length tmp-ini-list))
       (setq tmp-keyword (nth tmp-index tmp-ini-list))
@@ -103,7 +105,6 @@
       ;; NOTE: Check keyword exist before replacing it.
       ;; Or else it will cause `max-lisp-eval-depth' error.
       (when (string-match-p tmp-keyword template-str)
-
         ;; Check if the value is a function?
         (if (string-match-p "(" tmp-value)
             (progn
@@ -114,21 +115,22 @@
               (setq template-str (s-replace tmp-keyword
                                             (funcall (intern tmp-value))
                                             template-str)))
-          (progn
-            ;; Replace it normally with a string.
-            (setq template-str (s-replace tmp-keyword
-                                          tmp-value
-                                          template-str)))))
+          ;; Replace it normally with a string.
+          (setq template-str (s-replace tmp-keyword
+                                        tmp-value
+                                        template-str))))
       ;; Add 2 to skip keyword and value at the same time.
       (setq tmp-index (+ tmp-index 2))))
 
   ;; return itself.
   template-str)
 
+;;;###autoload
 (defun file-header-get-template-by-file-path (path)
   "Swap all keywords then return it from the PATH."
-  (file-header-swap-keyword-template (file-header-get-string-from-file path)))
+  (file-header-swap-keyword-template (file-header--get-string-from-file path)))
 
+;;;###autoload
 (defun file-header-insert-template-by-file-path (path)
   "Swap all keywords from the PATH then insert it to current buffer."
   (insert (file-header-get-template-by-file-path path)))
