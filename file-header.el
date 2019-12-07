@@ -1,4 +1,4 @@
-;;; file-header.el --- Highly customizable self design file header.                     -*- lexical-binding: t; -*-
+;;; file-header.el --- Highly customizable self design file header  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2018  Shen, Jen-Chieh
 ;; Created date 2018-12-24 16:49:42
@@ -6,7 +6,7 @@
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
 ;; Description: Highly customizable self design file header.
 ;; Keyword: file header
-;; Version: 0.0.1
+;; Version: 0.1.1
 ;; Package-Requires: ((emacs "24.4") (s "1.12.0"))
 ;; URL: https://github.com/jcs090218/file-header
 
@@ -48,22 +48,17 @@
   :group 'file-header)
 
 
-(defun file-header-get-string-from-file (filePath)
-  "Return filePath's file content.
-FILEPATH : file path."
+(defun file-header-get-string-from-file (path)
+  "Return PATH's file content."
   (with-temp-buffer
-    (insert-file-contents filePath)
+    (insert-file-contents path)
     (buffer-string)))
 
-(defun file-header-parse-ini (filePath)
-  "Parse a .ini file.
-FILEPATH : .ini file to parse."
-  (let ((tmp-ini (file-header-get-string-from-file filePath))
-        (tmp-ini-list '())
-        (tmp-pair-list nil)
-        (tmp-keyword "")
-        (tmp-value "")
-        (count 0))
+(defun file-header-parse-ini (path)
+  "Parse a .ini file from PATH."
+  (let ((tmp-ini (file-header-get-string-from-file path))
+        (tmp-ini-list '()) (tmp-pair-list nil)
+        (tmp-keyword "") (tmp-value "") (count 0))
     (setq tmp-ini (split-string tmp-ini "\n"))
 
     (dolist (tmp-line tmp-ini)
@@ -91,18 +86,12 @@ FILEPATH : .ini file to parse."
     tmp-ini-list))
 
 (defun file-header-swap-keyword-template (template-str)
-  "Swap all keyword in template to proper information.
-TEMPLATE-STR : template string data."
-  (let ((tmp-ini-list '())
-        (tmp-keyword "")
-        (tmp-value "")
-        (tmp-index 0))
-
+  "Swap all keyword in TEMPLATE-STR to proper information."
+  (let ((tmp-ini-list '()) (tmp-keyword "") (tmp-value "") (tmp-index 0))
     ;; parse and get the list of keyword and value.
     (setq tmp-ini-list (file-header-parse-ini file-header-template-config-filepath))
 
     (while (< tmp-index (length tmp-ini-list))
-
       (setq tmp-keyword (nth tmp-index tmp-ini-list))
       (setq tmp-value (nth (1+ tmp-index) tmp-ini-list))
 
@@ -111,8 +100,8 @@ TEMPLATE-STR : template string data."
       (setq tmp-keyword (concat "#" tmp-keyword))
       (setq tmp-keyword (concat tmp-keyword "#"))
 
-      ;; NOTE(jenchieh): Check keyword exist before replacing
-      ;; it. Or else it will cause `max-lisp-eval-depth' error.
+      ;; NOTE: Check keyword exist before replacing it.
+      ;; Or else it will cause `max-lisp-eval-depth' error.
       (when (string-match-p tmp-keyword template-str)
 
         ;; Check if the value is a function?
@@ -136,12 +125,14 @@ TEMPLATE-STR : template string data."
   ;; return itself.
   template-str)
 
-(defun file-header-insert-template-by-file-path (filePath)
-  "Swap all keywords then insert it to current buffer.
-FILEPATH : file path to insert and swap keyword."
-  (let ((template-str (file-header-get-string-from-file filePath)))
-    (setq template-str (file-header-swap-keyword-template template-str))
-    (insert template-str)))
+(defun file-header-get-template-by-file-path (path)
+  "Swap all keywords then return it from the PATH."
+  (file-header-swap-keyword-template (file-header-get-string-from-file path)))
+
+(defun file-header-insert-template-by-file-path (path)
+  "Swap all keywords from the PATH then insert it to current buffer."
+  (insert (file-header-get-template-by-file-path path)))
+
 
 (provide 'file-header)
 ;;; file-header.el ends here
