@@ -7,21 +7,26 @@
 
 
 ## Usage
+
 ### Step 1.
+
 First you need to set the template config file path.
 ```el
 (setq file-header-template-config-filepath "~/.emacs.jcs/template/template_config.properties")
 ```
 
 ### Step 2.
+
 Then create the config file to the directory where you just set. The config file 
 example can be found under `Config Example` section below.
 
 ### Step 3.
+
 Create the template file and design it. The template file example can be found under 
 `Templates Example` section below.
 
 ### Step 4.
+
 Lastly, you can define your own insert template function by calling `file-header-insert-template-by-file-path` 
 by passing the template file path. <br/>
 
@@ -44,14 +49,17 @@ the template will be inserted.
 ```
 
 ### Screenshot
+
 Here is the result after I created `cool.java` file.
 <img src="./screenshot/file-header-demo-1.png" width="612" height="255"/>
 
 
 ## Config Example
+
 Here is the minimal config example. Functions below like `jcs-get-file-name`, `jcs-get-timestamp`, etc, 
 are for demonstration purpose and not included inside this package. You would need 
 to define these functions your own somewhere in your emacs configuration.
+
 ```ini
 # Author related.
 CREATOR_NAME=Jen-Chieh Shen
@@ -67,13 +75,16 @@ TIME_YEAR=(jcs-get-year-only)
 ```
 
 There are two ways to assign value in the config file.
+
 * Assign property with value directly. e.g. `CREATOR_NAME=Jen-Chieh Shen`.
 * Assign property to a lisp function that returns a string. e.g. `TIME_STAMP=(jcs-get-timestamp)`.
 
 
 ## Templates Example
+
 This is the minimal template example for a Java file. The full example 
-can be found <a href="https://github.com/jcs090218/jcs-emacs-init/tree/master/.emacs.jcs/template">here</a>.
+can be found [here](https://github.com/jcs090218/jcs-emacs-init/tree/master/.emacs.jcs/template).
+
 ```java
 /**
  * $File: #FILE_NAME# $
