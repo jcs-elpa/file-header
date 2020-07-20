@@ -1,10 +1,8 @@
 [![Build Status](https://travis-ci.com/jcs090218/file-header.svg?branch=master)](https://travis-ci.com/jcs090218/file-header)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-
 # file-header
 > Highly customizable self design file header.
-
 
 ## Usage
 
@@ -51,8 +49,8 @@ the template will be inserted.
 ### Screenshot
 
 Here is the result after I created `cool.java` file.
-<img src="./screenshot/file-header-demo-1.png" width="612" height="255"/>
 
+<img src="./etc/file-header-demo-1.png" width="612" height="255"/>
 
 ## Config Example
 
@@ -101,8 +99,8 @@ public class #FILE_NAME_NO_EXT# {
 }
 ```
 
-
 ## Contribution
+
 If you would like to contribute to this project, you may either 
 clone and make pull requests to this repository. Or you can 
 clone the project and establish your own branch of this tool. 
