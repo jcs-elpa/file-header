@@ -6,7 +6,7 @@
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
 ;; Description: Highly customizable self design file header.
 ;; Keyword: file header
-;; Version: 0.1.1
+;; Version: 0.1.2
 ;; Package-Requires: ((emacs "24.4") (s "1.12.0"))
 ;; URL: https://github.com/jcs-elpa/file-header
 
