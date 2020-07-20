@@ -8,7 +8,7 @@
 ;; Keyword: file header
 ;; Version: 0.1.1
 ;; Package-Requires: ((emacs "24.4") (s "1.12.0"))
-;; URL: https://github.com/jcs090218/file-header
+;; URL: https://github.com/jcs-elpa/file-header
 
 ;; This file is NOT part of GNU Emacs.
 
@@ -34,19 +34,16 @@
 
 (require 's)
 
-
 (defgroup file-header nil
   "Highly customizable self design file header."
   :prefix "file-header-"
   :group 'convenience
-  :link '(url-link :tag "Repository" "https://github.com/jcs090218/file-header"))
+  :link '(url-link :tag "Repository" "https://github.com/jcs-elpa/file-header"))
 
-
-(defcustom file-header-template-config-filepath "~/.emacs.jcs/template/template_config.properties"
+(defcustom file-header-template-config-filepath ""
   "File path ot template config properties."
   :type 'string
   :group 'file-header)
-
 
 (defun file-header--get-string-from-file (path)
   "Return PATH's file content."
@@ -134,7 +131,6 @@
 (defun file-header-insert-template-by-file-path (path)
   "Swap all keywords from the PATH then insert it to current buffer."
   (insert (file-header-get-template-by-file-path path)))
-
 
 (provide 'file-header)
 ;;; file-header.el ends here
