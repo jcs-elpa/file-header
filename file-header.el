@@ -32,6 +32,8 @@
 
 ;;; Code:
 
+(require 'thingatpt)
+
 (defgroup file-header nil
   "Highly customizable self design file header."
   :prefix "file-header-"
