@@ -53,7 +53,7 @@ the template will be inserted.
 
 Here is the result after I created `cool.java` file.
 
-<img src="./etc/file-header-demo-1.png" width="612" height="255"/>
+<img src="./etc/demo.png" width="612" height="255"/>
 
 ## Config Example
 
