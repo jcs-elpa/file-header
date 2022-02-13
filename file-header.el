@@ -7,7 +7,7 @@
 ;; Description: Highly customizable self design file header.
 ;; Keyword: file header
 ;; Version: 0.1.2
-;; Package-Requires: ((emacs "24.4"))
+;; Package-Requires: ((emacs "25.1"))
 ;; URL: https://github.com/jcs-elpa/file-header
 
 ;; This file is NOT part of GNU Emacs.
@@ -80,14 +80,14 @@
             (setq tmp-ini-list (append tmp-ini-list tmp-list)))))
       (cl-incf count))
 
-    ;; return list.
+    ;; return list
     tmp-ini-list))
 
 ;;;###autoload
 (defun file-header-swap-keyword-template (template-str)
   "Swap all keyword in TEMPLATE-STR to proper information."
   (let ((tmp-keyword "") (tmp-value "") (tmp-index 0) tmp-ini-list)
-    ;; parse and get the list of keyword and value.
+    ;; parse and get the list of keyword and value
     (setq tmp-ini-list (file-header--parse-ini file-header-template-config-filepath))
 
     (while (< tmp-index (length tmp-ini-list))
@@ -97,8 +97,8 @@
       ;; Add `#' infront and behind the keyword; for instance, `CREATOR' to `#CREATOR#'
       (setq tmp-keyword (format "#%s#" tmp-keyword))
 
-      ;; NOTE: Check keyword exist before replacing it.
-      ;; Or else it will cause `max-lisp-eval-depth' error.
+      ;; NOTE: Check keyword exist before replacing it
+      ;; Or else it will cause `max-lisp-eval-depth' error
       (when (string-match-p tmp-keyword template-str)
         ;; Check if the value is a snippet
         (if (string-match-p "`" tmp-value)
@@ -107,11 +107,11 @@
                   template-str (file-header--s-replace tmp-keyword
                                                        (eval (thing-at-point--read-from-whole-string tmp-value))
                                                        template-str))
-          ;; Replace it normally with a string.
+          ;; Replace it normally with a string
           (setq template-str (file-header--s-replace tmp-keyword
                                                      tmp-value
                                                      template-str))))
-      ;; Add 2 to skip keyword and value at the same time.
+      ;; Add 2 to skip keyword and value at the same time
       (cl-incf tmp-index 2)))
 
   ;; return itself.
