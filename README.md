@@ -9,24 +9,24 @@
 
 ## Usage
 
-### Step 1.
+### 🔍 Step 1.
 
 First, you need to set the template config file path.
 ```el
 (setq file-header-template-config-filepath "~/.emacs.jcs/template/template_config.properties")
 ```
 
-### Step 2.
+### 🔍 Step 2.
 
 Then create the config file to the directory where you just set it. The config file 
 the example can be found under `Config Example` section below.
 
-### Step 3.
+### 🔍 Step 3.
 
 Create the template file and design it. The template file example can be found under 
 `Templates Example` section below.
 
-### Step 4.
+### 🔍 Step 4.
 
 Lastly, you can define your own insert template function by calling `file-header-insert-template-by-file-path` 
 bypassing the template file path.
@@ -80,7 +80,6 @@ There are two ways to assign value in the config file.
 
 * Assign property with value directly. e.g. `CREATOR_NAME=Jen-Chieh Shen`.
 * Assign property to a lisp function that returns a string. e.g. ``TIME_STAMP=`(format-time-string "%Y-%m-%d %H:%M:%S")` ``.
-
 
 ## Templates Example
 
