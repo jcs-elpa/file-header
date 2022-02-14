@@ -3,7 +3,7 @@
 [![JCS-ELPA](https://raw.githubusercontent.com/jcs-emacs/jcs-elpa/master/badges/v/file-header.svg)](https://jcs-emacs.github.io/jcs-elpa/#/file-header)
 
 # file-header
-> Highly customizable self design file header.
+> Highly customizable self-design file header.
 
 [![CI](https://github.com/jcs-elpa/file-header/actions/workflows/test.yml/badge.svg)](https://github.com/jcs-elpa/file-header/actions/workflows/test.yml)
 
@@ -11,15 +11,15 @@
 
 ### Step 1.
 
-First you need to set the template config file path.
+First, you need to set the template config file path.
 ```el
 (setq file-header-template-config-filepath "~/.emacs.jcs/template/template_config.properties")
 ```
 
 ### Step 2.
 
-Then create the config file to the directory where you just set. The config file 
-example can be found under `Config Example` section below.
+Then create the config file to the directory where you just set it. The config file 
+the example can be found under `Config Example` section below.
 
 ### Step 3.
 
@@ -29,10 +29,11 @@ Create the template file and design it. The template file example can be found u
 ### Step 4.
 
 Lastly, you can define your own insert template function by calling `file-header-insert-template-by-file-path` 
-by passing the template file path. <br/>
+bypassing the template file path.
 
 Example function that insert the Java template. You can either set 
-interactive or not interactive depends on your own usage.
+interactive or not interactive depends on your usage.
+
 ```el
 (defun insert-java-template ()
   "Insert the template for Java file."
@@ -40,8 +41,9 @@ interactive or not interactive depends on your own usage.
   (file-header-insert-template-by-file-path "~/.emacs.d/template/java/java_template.txt"))
 ```
 
-You can bind it to any `mode-hook' so everytime you created a file, 
+You can bind it to any `mode-hook' so every time you created a file, 
 the template will be inserted.
+
 ```el
 (add-hook 'java-mode-hook
               (lambda ()
@@ -57,28 +59,27 @@ Here is the result after I created `cool.java` file.
 
 ## Config Example
 
-Here is the minimal config example. Functions below like `jcs-get-file-name`, `jcs-get-timestamp`, etc, 
-are for demonstration purpose and not included inside this package. You would need 
-to define these functions your own somewhere in your emacs configuration.
+Here is the minimal config example. Functions below like `(buffer-file-name)`, `(format-time-string "%Y")`, etc, 
+are for demonstration purposes and not included inside this package. You would need 
+to define these functions on your own somewhere in your emacs configuration.
 
 ```ini
-# Author related.
-CREATOR_NAME=Jen-Chieh Shen
-COPYRIGHT_INFO=Shen, Jen-Chieh
+# Author related
+CREATOR_NAME=`user-full-name`
 
-# File related.
-FILE_NAME=(jcs-get-file-name)
-FILE_NAME_NO_EXT=(jcs-get-file-name-without-extension)
+# File related
+FILE_NAME=`buffer-file-name`
+FILE_NAME_NO_EXT=`(file-name-sans-extension buffer-file-name)`
 
 # Time
-TIME_STAMP=(jcs-get-timestamp)
-TIME_YEAR=(jcs-get-year-only)
+TIME_STAMP=`(format-time-string "%Y-%m-%d %H:%M:%S")`
+TIME_YEAR=`(format-time-string "%Y")`
 ```
 
 There are two ways to assign value in the config file.
 
 * Assign property with value directly. e.g. `CREATOR_NAME=Jen-Chieh Shen`.
-* Assign property to a lisp function that returns a string. e.g. `TIME_STAMP=(jcs-get-timestamp)`.
+* Assign property to a lisp function that returns a string. e.g. ``TIME_STAMP=`(format-time-string "%Y-%m-%d %H:%M:%S")` ``.
 
 
 ## Templates Example
@@ -109,6 +110,6 @@ public class #FILE_NAME_NO_EXT# {
 [![Donate on paypal](https://img.shields.io/badge/paypal-donate-1?logo=paypal&color=blue)](https://www.paypal.me/jcs090218)
 
 If you would like to contribute to this project, you may either 
-clone and make pull requests to this repository. Or you can 
+clone or make pull requests to this repository. Or you can 
 clone the project and establish your own branch of this tool. 
 Any methods are welcome!
