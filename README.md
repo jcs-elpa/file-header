@@ -1,6 +1,6 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![CELPA](https://celpa.conao3.com/packages/file-header-badge.svg)](https://celpa.conao3.com/#/file-header)
-[![JCS-ELPA](https://raw.githubusercontent.com/jcs-emacs/jcs-elpa/master/badges/v/file-header.svg)](https://jcs-emacs.github.io/jcs-elpa/#/file-header)
+[![JCS-ELPA](https://raw.githubusercontent.com/jcs-emacs/badges/master/elpa/v/file-header.svg)](https://jcs-emacs.github.io/jcs-elpa/#/file-header)
 
 # file-header
 > Highly customizable self-design file header.
