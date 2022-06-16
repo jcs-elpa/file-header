@@ -4,11 +4,10 @@
 ;; Created date 2018-12-24 16:49:42
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
-;; Description: Highly customizable self design file header.
-;; Keyword: file header
+;; URL: https://github.com/jcs-elpa/file-header
 ;; Version: 0.1.2
 ;; Package-Requires: ((emacs "25.1"))
-;; URL: https://github.com/jcs-elpa/file-header
+;; Keywords: file header
 
 ;; This file is NOT part of GNU Emacs.
 

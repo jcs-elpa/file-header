@@ -2,6 +2,9 @@
          "0.1.2"
          "Highly customizable self design file header")
 
+(website-url "https://github.com/jcs-elpa/file-header")
+(keywords "file" "header")
+
 (package-file "file-header.el")
 
 (source "melpa")
