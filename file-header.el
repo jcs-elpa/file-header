@@ -7,7 +7,7 @@
 ;; URL: https://github.com/jcs-elpa/file-header
 ;; Version: 0.1.2
 ;; Package-Requires: ((emacs "25.1"))
-;; Keywords: file header
+;; Keywords: convenience file header
 
 ;; This file is NOT part of GNU Emacs.
 
