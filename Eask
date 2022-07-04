@@ -3,7 +3,7 @@
          "Highly customizable self design file header")
 
 (website-url "https://github.com/jcs-elpa/file-header")
-(keywords "file" "header")
+(keywords "convenience" "file" "header")
 
 (package-file "file-header.el")
 
