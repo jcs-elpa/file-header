@@ -64,6 +64,11 @@
       (with-temp-buffer (insert-file-contents path) (buffer-string))
     ""))
 
+;;;###autoload
+(defun file-header-template-string (path)
+  "Read template from PATH to string."
+  (file-header--file-content (f-join file-header-template-dir path)))
+
 ;;
 ;; (@* "Core" )
 ;;
