@@ -79,6 +79,7 @@
 Arguments LANG and FILE see function `file-header--insert' for more information.
 
 Optional argument DOC-STRING is optional document string."
+  (declare (doc-string 4) (indent 3))
   (or name (error "Cannot define '%s' as a function" name))
   `(defun ,name nil ,doc-string (file-header--insert ,lang ,file)))
 
