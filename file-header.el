@@ -96,7 +96,7 @@ Optional argument DOC-STRING is optional document string."
 Arugment PROMPT is the question to ask for completion; argument OPTIONS is used
 for completion read.
 
-The rest of the arguments CASES are use to fill insertion's condition."
+The rest of the arguments BODY are use to fill insertion's condition."
   (declare (indent 2))
   (or name (error "Cannot define '%s' as a function" name))
   `(defun ,name (source)
