@@ -90,7 +90,7 @@ Optional argument DOC-STRING is optional document string."
   `(defun ,name nil ,doc-string (file-header--insert ,lang ,file)))
 
 ;;;###autoload
-(defmacro file-header-defsrc (name prompt options &rest cases)
+(defmacro file-header-defsrc (name prompt options &rest body)
   "Define file header source function with NAME.
 
 Arugment PROMPT is the question to ask for completion; argument OPTIONS is used
@@ -101,7 +101,7 @@ The rest of the arguments CASES are use to fill insertion's condition."
   (or name (error "Cannot define '%s' as a function" name))
   `(defun ,name (source)
      (interactive (list (completing-read ,prompt ,options)))
-     (pcase (cl-position source ,options :test 'string=) ,@cases)))
+     (let ((index (cl-position source ,options :test 'string=))) ,@body)))
 
 (defun file-header--parse-ini (path)
   "Parse a .ini file from PATH."
