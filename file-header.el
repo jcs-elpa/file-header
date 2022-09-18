@@ -31,6 +31,7 @@
 
 ;;; Code:
 
+(require 'cl-lib)
 (require 'thingatpt)
 
 (require 'f)
@@ -87,6 +88,20 @@ Optional argument DOC-STRING is optional document string."
   (declare (doc-string 4) (indent 3))
   (or name (error "Cannot define '%s' as a function" name))
   `(defun ,name nil ,doc-string (file-header--insert ,lang ,file)))
+
+;;;###autoload
+(defmacro file-header-defsrc (name prompt options &rest cases)
+  "Define file header source function with NAME.
+
+Arugment PROMPT is the question to ask for completion; argument OPTIONS is used
+for completion read.
+
+The rest of the arguments CASES are use to fill insertion's condition."
+  (declare (indent 2))
+  (or name (error "Cannot define '%s' as a function" name))
+  `(defun ,name (source)
+     (interactive (list (completing-read ,prompt ,options)))
+     (pcase (cl-position source ,options :test 'string=) ,@cases)))
 
 (defun file-header--parse-ini (path)
   "Parse a .ini file from PATH."
