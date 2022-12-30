@@ -126,20 +126,22 @@ The rest of the arguments BODY are use to fill insertion's condition."
   (or name (error "Cannot define '%s' as a function" name))
   `(defun ,name ()
      (interactive)
-     (let* ((is-alist (consp (nth 0 ,options)))
+     (let* ((prev-buffer (current-buffer))
+            (is-alist (consp (nth 0 ,options)))
             (offset (file-header--completing-frame-offset ,options))
             (source
              (completing-read
               ,prompt
               (lambda (string predicate action)
-                (if (eq action 'metadata)
-                    `(metadata
-                      (display-sort-function . ,#'identity)
-                      (annotation-function
-                       . ,(lambda (cand)
-                            (concat (propertize " " 'display `((space :align-to (- right ,offset))))
-                                    (cdr (assoc cand ,options))))))
-                  (complete-with-action action ,options string predicate)))
+                (with-current-buffer prev-buffer
+                  (if (eq action 'metadata)
+                      `(metadata
+                        (display-sort-function . ,#'identity)
+                        (annotation-function
+                         . ,(lambda (cand)
+                              (concat (propertize " " 'display `((space :align-to (- right ,offset))))
+                                      (cdr (assoc cand ,options))))))
+                    (complete-with-action action ,options string predicate))))
               nil t))
             (index (cl-position source (if is-alist (mapcar #'car ,options)
                                          ,options)
