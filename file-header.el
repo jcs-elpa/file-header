@@ -52,8 +52,8 @@
   :type 'string
   :group 'file-header)
 
-(defcustom file-header-annotation-percentage 2.5
-  "Percentage to display completin-read annotation."
+(defcustom file-header-annotation-ratio 2.5
+  "Ratio align from the right to display `completin-read' annotation."
   :type 'float
   :group 'file-header)
 
@@ -93,7 +93,7 @@ Argument OPTIONS ia an alist use to calculate the frame offset."
   (max (file-header--seq-str-max (if (consp (car options))
                                      (mapcar #'cdr options)
                                    options))
-       (/ (frame-width) file-header-annotation-percentage)))
+       (/ (frame-width) file-header-annotation-ratio)))
 
 ;;
 ;; (@* "Core" )
