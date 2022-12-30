@@ -52,9 +52,18 @@
   :type 'string
   :group 'file-header)
 
+(defcustom file-header-annotation-percentage 2.5
+  "Percentage to display completin-read annotation."
+  :type 'float
+  :group 'file-header)
+
 ;;
 ;; (@* "Util" )
 ;;
+
+(defun file-header--2str (obj)
+  "Convert OBJ to string."
+  (format "%s" obj))
 
 (defun file-header--file-content (path)
   "Return PATH's file content."
@@ -66,10 +75,25 @@
   "Concatenate ARGS to path."
   (cl-reduce (lambda (a b) (expand-file-name b a)) args))
 
+(defun file-header--seq-str-max (sequence)
+  "Return max length in list of strings."
+  (let ((result 0))
+    (mapc (lambda (elm) (setq result (max result (length (file-header--2str elm))))) sequence)
+    result))
+
 ;;;###autoload
 (defun file-header-template-string (path)
   "Read template from PATH to string."
   (file-header--file-content (file-header--f-join file-header-template-dir path)))
+
+(defun file-header--completing-frame-offset (options)
+  "Return frame offset while `completing-read'.
+
+Argument OPTIONS ia an alist use to calculate the frame offset."
+  (max (file-header--seq-str-max (if (consp (car options))
+                                     (mapcar #'cdr options)
+                                   options))
+       (/ (frame-width) file-header-annotation-percentage)))
 
 ;;
 ;; (@* "Core" )
@@ -100,9 +124,27 @@ for completion read.
 The rest of the arguments BODY are use to fill insertion's condition."
   (declare (indent 2))
   (or name (error "Cannot define '%s' as a function" name))
-  `(defun ,name (source)
-     (interactive (list (completing-read ,prompt ,options)))
-     (let ((index (cl-position source ,options :test 'string=))) ,@body)))
+  `(defun ,name ()
+     (interactive)
+     (let* ((is-alist (consp (nth 0 ,options)))
+            (offset (file-header--completing-frame-offset ,options))
+            (source
+             (completing-read
+              ,prompt
+              (lambda (string predicate action)
+                (if (eq action 'metadata)
+                    `(metadata
+                      (display-sort-function . ,#'identity)
+                      (annotation-function
+                       . ,(lambda (cand)
+                            (concat (propertize " " 'display `((space :align-to (- right ,offset))))
+                                    (cdr (assoc cand ,options))))))
+                  (complete-with-action action ,options string predicate)))
+              nil t))
+            (index (cl-position source (if is-alist (mapcar #'car ,options)
+                                         ,options)
+                                :test 'string=)))
+       ,@body)))
 
 (defun file-header--parse-ini (path)
   "Parse a .ini file from PATH."
