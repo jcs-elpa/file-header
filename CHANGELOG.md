@@ -8,7 +8,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## 0.1.4 (Unreleased)
 > Released N/A
 
-* N/A
+* Ensure current buffer in `defsrc` (127d3003dd051e2dc65be6ce318bc75c3256b37e)
 
 ## 0.1.3
 > Released Dec 30, 2022
