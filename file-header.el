@@ -76,7 +76,7 @@
   (cl-reduce (lambda (a b) (expand-file-name b a)) args))
 
 (defun file-header--seq-str-max (sequence)
-  "Return max length in list of strings."
+  "Return max length in SEQUENCE of strings."
   (let ((result 0))
     (mapc (lambda (elm) (setq result (max result (length (file-header--2str elm))))) sequence)
     result))

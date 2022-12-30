@@ -13,4 +13,4 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## 0.1.3
 > Released Dec 30, 2022
 
-* Accept alist for `defsrc` ()
+* Accept alist for `defsrc` (8c2266f1861fd2a5f0ac37fc96c2e4607de72096)
