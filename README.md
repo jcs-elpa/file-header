@@ -6,26 +6,27 @@
 
 [![CI](https://github.com/jcs-elpa/file-header/actions/workflows/test.yml/badge.svg)](https://github.com/jcs-elpa/file-header/actions/workflows/test.yml)
 
-## Usage
+## 🛠️ Usage
 
-### 🔍 Step 1.
+### 🔍 Step 1. Define template path
 
 First, you need to set the template config file path.
-```el
+
+```elisp
 (setq file-header-template-config-filepath "~/.emacs.jcs/template/template_config.properties")
 ```
 
-### 🔍 Step 2.
+### 🔍 Step 2. Create configuration
 
 Then create the config file to the directory where you just set it. The config file 
 the example can be found under `Config Example` section below.
 
-### 🔍 Step 3.
+### 🔍 Step 3. Design your template configuration
 
 Create the template file and design it. The template file example can be found under 
 `Templates Example` section below.
 
-### 🔍 Step 4.
+### 🔍 Step 4. Call and use it!
 
 Lastly, you can define your own insert template function by calling `file-header-insert-template-by-file-path` 
 bypassing the template file path.
@@ -33,7 +34,7 @@ bypassing the template file path.
 Example function that insert the Java template. You can either set 
 interactive or not interactive depends on your usage.
 
-```el
+```elisp
 (defun insert-java-template ()
   "Insert the template for Java file."
   (interactive)
@@ -43,7 +44,7 @@ interactive or not interactive depends on your usage.
 You can bind it to any `mode-hook' so every time you created a file, 
 the template will be inserted.
 
-```el
+```elisp
 (add-hook 'java-mode-hook
               (lambda ()
                 ;; Insert the template once a .java file created.
