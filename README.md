@@ -6,7 +6,7 @@
 
 [![CI](https://github.com/jcs-elpa/file-header/actions/workflows/test.yml/badge.svg)](https://github.com/jcs-elpa/file-header/actions/workflows/test.yml)
 
-## 🛠️ Usage
+## 🔧 Usage
 
 ### 🔍 Step 1. Define template path
 
@@ -51,13 +51,13 @@ the template will be inserted.
                 (insert-java-template))
 ```
 
-### Screenshot
+### 🖼️ Screenshot
 
 Here is the result after I created `cool.java` file.
 
 <img src="./etc/demo.png" width="612" height="255"/>
 
-## Config Example
+## 🧪 Config Example
 
 Here is the minimal config example. Functions below like `(buffer-file-name)`, `(format-time-string "%Y")`, etc, 
 are for demonstration purposes and not included inside this package. You would need 
@@ -81,7 +81,7 @@ There are two ways to assign value in the config file.
 * Assign property with value directly. e.g. `CREATOR_NAME=Jen-Chieh Shen`.
 * Assign property to a lisp function that returns a string. e.g. ``TIME_STAMP=`(format-time-string "%Y-%m-%d %H:%M:%S")` ``.
 
-## Templates Example
+## 🏚️ Templates Example
 
 This is the minimal template example for a Java file. The full example 
 can be found [here](https://github.com/jcs090218/jcs-emacs-init/tree/master/.emacs.jcs/template).
@@ -102,7 +102,7 @@ public class #FILE_NAME_NO_EXT# {
 }
 ```
 
-## Contribute
+## ️🛠 Contribute
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Elisp styleguide](https://img.shields.io/badge/elisp-style%20guide-purple)](https://github.com/bbatsov/emacs-lisp-style-guide)
@@ -113,3 +113,62 @@ If you would like to contribute to this project, you may either
 clone or make pull requests to this repository. Or you can 
 clone the project and establish your own branch of this tool. 
 Any methods are welcome!
+
+### 🔬 Development
+
+To run the test locally, you will need the following tools:
+
+- [Eask](https://emacs-eask.github.io/)
+- [Make](https://www.gnu.org/software/make/) (optional)
+
+Install all dependencies and development dependencies:
+
+```sh
+$ eask install-deps --dev
+```
+
+To test package's installation:
+
+```sh
+$ eask package
+$ eask install
+```
+
+To test compilation:
+
+```sh
+$ eask compile
+```
+
+**🪧 The following steps are optional, but we recommend you follow these lint results!**
+
+The built-in `checkdoc` linter:
+
+```sh
+$ eask lint checkdoc
+```
+
+The standard `package` linter:
+
+```sh
+$ eask lint package
+```
+
+*📝 P.S. For more information, find the Eask manual at https://emacs-eask.github.io/.*
+
+## ⚜️ License
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+See [`LICENSE`](./LICENSE.txt) for details.
