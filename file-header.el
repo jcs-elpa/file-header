@@ -1,6 +1,6 @@
 ;;; file-header.el --- Highly customizable self design file header  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2018-2024  Shen, Jen-Chieh
+;; Copyright (C) 2018-2025  Shen, Jen-Chieh
 ;; Created date 2018-12-24 16:49:42
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
