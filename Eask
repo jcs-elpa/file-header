@@ -1,3 +1,5 @@
+;; -*- mode: eask; lexical-binding: t -*-
+
 (package "file-header"
          "0.1.2"
          "Highly customizable self design file header")
